@@ -36,6 +36,34 @@
         </div>
     </div>
 
+    <!-- Add Product Button in Top-Left Corner -->
+    <button id="openModalBtn" class="btn btn-primary" style="position: fixed; top: 20px; left: 20px; z-index: 1000;">Add Product</button>
+
+    <!-- Modal Structure (Hidden by Default) -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModalBtn" class="close">&times;</span>
+            <h2>Add Product</h2>
+            
+            <!-- Product Form -->
+            <input type="text" id="productTitle" class="form-control" placeholder="Title" required>
+            <textarea id="productDescription" class="form-control" placeholder="Description" required></textarea>
+            <input type="file" id="productImage" class="form-control" accept="image/*" required>
+            
+            <button id="addProductBtn" class="btn btn-success">Add Product</button>
+            
+            <!-- Success Message (hidden initially) -->
+            <div id="successMessage" class="success-message" style="display: none;">
+                <span class="checkmark">✔</span> Product Added!
+            </div>
+        </div>
+    </div>
+
+    <!-- Product List Container -->
+    <div id="productList"></div>
+
+
+
     <!-- Modal for unique code -->
     <div id="uniqueCodeModal" class="modal fade">
         <div class="modal-dialog">
@@ -55,22 +83,9 @@
         </div>
     </div>
 
-    <!-- Modal for item details -->
-    <div id="itemModal" class="modal">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitle">Item Title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="modalDescription">
-                    <!-- Description, Images, Datasheets will be dynamically loaded here -->
-                </div>
-            </div>
-        </div>
-    </div>
+    
+    
+
     <!-- Firebase SDK & Bootstrap JS -->
     <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
