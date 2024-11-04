@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVS</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+    <header class="bg-primary text-white py-4 mb-4">
+        <div class="container text-center">
+            <h1>Null-Void Server</h1>
+            <div class="input-group mt-3 mb-3">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search...">
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="form-group mr-2">
+                    <label for="minPriceInput" class="text-white">Min Price:</label>
+                    <input type="number" id="minPriceInput" min="0" class="form-control" placeholder="Min price">
+                </div>
+                <div class="form-group">
+                    <label for="maxPriceInput" class="text-white">Max Price:</label>
+                    <input type="number" id="maxPriceInput" min="0" class="form-control" placeholder="Max price">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        
+
+        <div class="item-list" id="itemList">
+            <!-- Item cards will be dynamically generated here -->
+        </div>
+    </div>
+
+    <!-- Modal for unique code -->
+    <div id="uniqueCodeModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Unique Code</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeUniqueCodeModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Your unique code:</p>
+                    <p id="uniqueCode" class="font-weight-bold"></p>
+                    <button class="btn btn-primary" id="copyCode">Copy Code</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for item details -->
+    <div id="itemModal" class="modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Item Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalDescription">
+                    <!-- Description, Images, Datasheets will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Firebase SDK & Bootstrap JS -->
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyDHfTUVy7H4ZPlARt42C3lzxxtxoeKoq2k",
+            authDomain: "current-server.firebaseapp.com",
+            projectId: "current-server",
+            storageBucket: "current-server.appspot.com",
+            messagingSenderId: "905967526812",
+            appId: "1:905967526812:web:ad9fe658166f0e0cbd9e59",
+            measurementId: "G-3FSZJ38KDK"
+        };
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+</body>
+</html>
